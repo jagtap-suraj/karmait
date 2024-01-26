@@ -9,8 +9,8 @@ import 'package:karmait/core/constants/constants.dart';
 import 'package:karmait/features/auth/repository/google_sign_in.dart';
 import 'package:karmait/theme/pallete.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class SignupScreen extends StatelessWidget {
+  const SignupScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -57,12 +57,10 @@ class LoginScreen extends StatelessWidget {
                   BuildDivider(),
                 ],
               ),
-              const SizedBox(height: 14),
-              UserField(hintText: 'Email', onPressed: () {}),
+              const SizedBox(height: 8),
+              UserField(hintText: 'Email or Phone No', onPressed: () {}),
               const SizedBox(height: 16),
-              UserField(hintText: 'Password', onPressed: () {}),
-              const SizedBox(height: 16),
-              const LinkToSignup()
+              const LinkToLogin()
             ],
           ),
         ),

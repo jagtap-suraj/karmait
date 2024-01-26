@@ -5,7 +5,8 @@ import 'package:karmait/features/auth/controller/auth_controller.dart';
 import 'package:karmait/theme/pallete.dart';
 
 class SignInButton extends ConsumerWidget {
-  const SignInButton({super.key});
+  final Function loginMethod;
+  const SignInButton({super.key, required this.loginMethod});
 
   void signInWithGoogle(WidgetRef ref) {
     ref.read(authControllerProvider).signInWithGoogle();
@@ -16,7 +17,8 @@ class SignInButton extends ConsumerWidget {
     return Padding(
       padding: const EdgeInsets.all(18.0),
       child: ElevatedButton.icon(
-        onPressed: () => signInWithGoogle(ref),
+        //onPressed: () => signInWithGoogle(ref),
+        onPressed: () => loginMethod(),
         icon: Image.asset(
           Constants.googlePath,
           width: 35,

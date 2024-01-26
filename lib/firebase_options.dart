@@ -17,15 +17,24 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -43,39 +52,11 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBdJGjWm0BTp2-KomtEgR-64s7ABRKSy2I',
-    appId: '1:415835605695:web:84f80af0f4eb5167d8540a',
-    messagingSenderId: '415835605695',
-    projectId: 'karmait2',
-    authDomain: 'karmait2.firebaseapp.com',
-    storageBucket: 'karmait2.appspot.com',
-    measurementId: 'G-1CF2QG0BK7',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDHmn8UDDKCs14AMzs92MFQbCU1EC9PGF4',
-    appId: '1:415835605695:android:0bc8340b64c1ed46d8540a',
+    appId: '1:415835605695:android:fcefd2e7e483e9a0d8540a',
     messagingSenderId: '415835605695',
     projectId: 'karmait2',
     storageBucket: 'karmait2.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCNImN5yVlnmdhPU9EDgNMzuLtIdrgcY64',
-    appId: '1:415835605695:ios:79fec82030f21a6bd8540a',
-    messagingSenderId: '415835605695',
-    projectId: 'karmait2',
-    storageBucket: 'karmait2.appspot.com',
-    iosBundleId: 'com.example.karmait',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCNImN5yVlnmdhPU9EDgNMzuLtIdrgcY64',
-    appId: '1:415835605695:ios:f9c70f9c55ddca1fd8540a',
-    messagingSenderId: '415835605695',
-    projectId: 'karmait2',
-    storageBucket: 'karmait2.appspot.com',
-    iosBundleId: 'com.example.karmait.RunnerTests',
   );
 }

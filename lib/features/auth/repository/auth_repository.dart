@@ -1,7 +1,6 @@
-// Logic for firebase calls
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:karmait/core/providers/firebase_providers.dart';
@@ -29,6 +28,8 @@ class AuthRepository {
         _firestore = firestore,
         _googleSignIn = googleSignIn;
 
+  //print all the three variables
+
   void signInWithGoogle() async {
     try {
       final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
@@ -41,14 +42,18 @@ class AuthRepository {
 
       UserCredential userCredential = await _auth.signInWithCredential(credential);
 
+      debugPrint("userCredential $userCredential");
+      debugPrint("userCredential ${userCredential.user}");
+      debugPrint("email ${userCredential.user!.email}");
+
       if (userCredential.user != null) {
-        print("email ${userCredential.user?.email}");
+        debugPrint("email ${userCredential.user!.email}");
       } else {
-        print("User is null");
+        debugPrint("User is null");
       }
     } catch (e) {
       // Throwing errors to the controller
-      print(e);
+      debugPrint("catch error2 $e");
     }
   }
 }

@@ -9,6 +9,14 @@ class Pallete {
   static var redColor = Colors.red.shade500;
   static var blueColor = Colors.blue.shade300;
 
+  static const Color backgroundColor = Color.fromRGBO(24, 24, 32, 1);
+  static const Color gradient1 = Color.fromRGBO(187, 63, 221, 1);
+  static const Color gradient2 = Color.fromRGBO(251, 109, 169, 1);
+  static const Color gradient3 = Color.fromRGBO(255, 159, 124, 1);
+  static const Color borderColor = Color.fromRGBO(52, 51, 67, 1);
+  // color for hyperlink
+  static const Color linkColor = Color.fromRGBO(255, 159, 124, 1);
+
   // Themes
   static var darkModeAppTheme = ThemeData.dark().copyWith(
     scaffoldBackgroundColor: blackColor,
